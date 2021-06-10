@@ -82,3 +82,48 @@ foo(); // 2
 */
 ```
 ### 隐式绑定
+相比于默认绑定，隐式绑定要考虑调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含
+
+例如：
+```JS
+        function foo(){
+            console.log(this.a)
+        }
+        let obj = {
+            a: 2,
+            foo: foo
+        };
+        obj.foo(); // 2
+```
+这个就是一开始说的谁调用this指向谁。而在这个引用链上只有上一层或者说是最后一层在调用位置中起作用
+
+例如：
+```JS
+        function foo(){
+            console.log(this.a)
+        }
+        let obj2 = {
+            a: 42,
+            foo: foo
+        };
+
+        let obj1 = {
+            a: 2,
+            obj2: obj1
+        };
+        obj1.obj2.foo(); // 42
+```
+而隐式绑定还会发生隐式丢失现象，具体就是把函数当成参数进行调用或者赋值给变量进行调用，这样调用的是函数本身，会被认为是一个不带修饰的函数调用，因此应用了默认绑定
+```JS
+        function foo(){
+            console.log(this.a)
+        }
+         let obj = {
+             a:2,
+             foo: foo
+         };
+         let bar = obj.foo; // 函数别名
+         let a = "oops, global"; // a是全局对象的属性
+         bar(); // oops, global
+```
+### 显示绑定
