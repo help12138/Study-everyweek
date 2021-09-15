@@ -1,5 +1,24 @@
 # 正则表达式
 正则表达式 = 字符 + 元字符
+
+创建方式 ：
+* `/ 两个斜杠中间写 / ` 这个方式中间只能书写字符,不能书写变量,可以改用`console.log(eval(`/${a}/`).test(变量)) `
+* 对象创建
+  -  let reg = new RegExp("u", "g"); 前面的是查找字符(可以为变量), 后面的是模式
+  ```JS
+    <div>
+      01这是一个测试@163.com
+    </div>
+      
+    <script>
+      let con = prompt("请输入要检测的内容, 支持正则");
+      let reg = new RegExp(con, 'g');
+      let div = document.querySelector("div");
+      div.innerHTML = div.innerHTML.replace(reg, search=>{
+        return `<span style="color:red">${search}</span>`
+      })
+    </script>
+  ```
 ### 单个字符
 对于单个字符,就用对应的字符匹配,如果遇见特殊字符,比如 `*` 就用` \* ` 来转义
 
