@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 对象属性分为两种 1.数据属性； 2.访问器属性
+      // 访问器属性：
+      // getter和setter， 在对象字面量中它们用get和set表示
+      // let obj = {
+      //   get propName(){
+      //     // 当读取obj.propName时，getter起作用
+      //   },
+      //   set propNmae(){
+      //     // 当执行obj.propName时，setter起作用
+      //   }
+      // }
+      let obj = {
+        name: "John",
+        surname: "Smith",
+        get fullName() {
+          return `${this.name} ${this.surname}`;
+        },
+        set fullName(value) {
+          [this.name, this.surname] = value.split(" ");
+        },
+      };
+
+      obj.fullName = "Alice Cooper";
+      alert(obj.name);
+      alert(obj.surname);
+
+      // 对于访问器属性没有value和writable
+      // 一个属性要么时访问器属性（具有get/set方法），要么是数据属性（具有value）
+      // 但不能两者都是，否者会报错
+    </script>
+  </body>
+</html>

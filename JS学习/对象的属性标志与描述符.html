@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 属性标志
+      // writable  // 是否是只读
+      // enmuerable  // 是否可枚举
+      // configurable  // 是否可以被删除
+
+      // Object.getOwnPropertyDescriptor(obj, propertyName)  // 查看相关对象的属性信息
+      // 例如
+      // let user = { name: "user" };
+      // let descriptor = Object.getOwnPropertyDescriptor(user, "name");
+      // alert(JSON.stringify(descriptor, null,2));
+
+      // Object.defineProperty(obj, propertName, descriptor);
+      // 这个方法可以修改标志
+      // 例如
+      // let user = {};
+      // Object.defineProperty(user, "name", { value: "Jhon" });
+      // let descriptor = Object.getOwnPropertyDescriptor(user, "name");
+      // alert(JSON.stringify(descriptor));
+      // 这里所有的状态都是false
+
+      // 小Tips：
+      // Math.PI是只读，不可枚举，不可更改
+      // configurable:false 是用来防止更改和删除属性标志。但是允许更改对象的值
+    </script>
+  </body>
+</html>
