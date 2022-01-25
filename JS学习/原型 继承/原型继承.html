@@ -7,6 +7,73 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      // 当我们想从当前对象中读取一个缺失的属性，读取不到时，JS会自动从原型中获取该属性
+      // 这种行为被称为原型继承
+      // 例如：
+      // let animal = {
+      //   eats: true,
+      // };
+      // let rabbit = {
+      //   jumps: true,
+      // };
+
+      // rabbit.__proto__ = animal; // 将animal对象设置为rabbit对象的原型，rabbit对象就能使用animal的属性
+
+      // alert(rabbit.jumps);
+      // alert(rabbit.eats);
+
+      // 当原型之上又有原型时，这种结构就被称为原型链
+      // 当然最后所有的原型都指向Object，Object之上就是null
+
+      // 原型仅用于读取属性， 对于写入和删除，我们可以直接在对象上进行
+      // 例如：
+      // let animal = {
+      //   eats: true,
+      //   walk() {
+      //     /* rabbit不会使用此方法 */
+      //   },
+      // };
+      // let rabbit = {
+      //   __proto__: animal,
+      // };
+
+      // rabbit.walk = function () {
+      //   alert("rabbit使用的是这个函数");
+      // };
+      // rabbit.walk();
+
+      // 访问器属性是例外
+      // let user = {
+      //   name: "John",
+      //   surname: "Smith",
+
+      //   set fullName (value) {
+      //     [this.name, this.surname] = value.split(" ")
+      //   },
+
+      //   get fullName () {
+      //     return `${this.name} ${this.surname}`
+      //   }
+      // }
+
+      // let admin = {
+      //   __proto__: user,
+      //   isAdmin: true
+      // }
+      // admin.fullName = "Alice Cooper"
+      // // 这里两个结果不会相同，一个是被修改了的结果，一个是原结果
+      // alert(admin.fullName)
+      // alert(user.fullName)
+
+      // F.prototype 属性（不要把它与 [[Prototype]] 弄混了）在 new F 被调用时为新对象的 [[Prototype]] 赋值。
+      // F.prototype 的值要么是一个对象，要么就是 null：其他值都不起作用。
+      // "prototype" 属性仅在设置了一个构造函数（constructor function），并通过 new 调用时，才具有这种特殊的影响。
+      // 常规对象上，prototype没什么特别的
+      // let user = {
+      //   name: "John",
+      //   prototype: "Bla-bal"
+      // }
+    </script>
   </body>
 </html>
