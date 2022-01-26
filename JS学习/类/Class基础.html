@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 类的作用大多数情况下就是为了语义化的创建对象，大多数情况与function.prototype功能相同
+
+      // 语法
+      // class Myclass {
+      //   constructor() {}
+      //   methods() {}
+      //   methods() {}
+      // }
+      // 调用时使用new 来调用
+      // class User {
+      //   constructor(name) {
+      //     this.name = name;
+      //   }
+      //   sayHi() {
+      //     alert(this.name);
+      //   }
+      // }
+
+      // let user = new User("Jhon");
+      // user.sayHi();
+
+      // 在Js中类是一种函数
+
+      /*
+      类继承
+      类继承时一个类扩展另一个类的一种方式
+      需要用extends   假设我们有一个类
+      */
+
+      // class Animal {
+      //   constructor(name) {
+      //     this.speed = 0;
+      //     this.name = name;
+      //   }
+      //   run(speed) {
+      //     this.speed = speed;
+      //     alert(`${this.name} runs with speed ${this.speed}`);
+      //   }
+      //   stop() {
+      //     this.speed = 0;
+      //     alert(`${this.name} stand still`);
+      //   }
+      // }
+
+      // let animal = new Animal("My animal");
+      // // 我们想创建另一个class Rabbit 继承自animal
+      // class Rabbit extends Animal {
+      //   hide() {
+      //     alert(`${this.name} hides`);
+      //   }
+      // }
+      // let rabbit = new Rabbit("White Rabbit");
+      // rabbit.run(5);
+      // rabbit.hide();
+
+      /*
+      extends后面不仅允许指定一个类，可以跟任意表达式
+      重写方法
+      当我们想在子类中调用父类方法并在其基础上调整或拓展功能
+      但不改变父类同名方法的功能，我们可以用super在我们的功能之前或之后
+      调用父类方法
+      */
+
+      // class Animal {
+      //   constructor(name) {
+      //     this.speed = 0;
+      //     this.name = name;
+      //   }
+      //   run(speed) {
+      //     this.speed = speed;
+      //     alert(`${this.name} runs with speed ${this.speed}`);
+      //   }
+      //   stop() {
+      //     this.speed = 0;
+      //     alert(`${this.name} stand still`);
+      //   }
+      // }
+
+      // let animal = new Animal("My animal");
+      // // 我们想创建另一个class Rabbit 继承自animal
+      // class Rabbit extends Animal {
+      //   hide() {
+      //     alert(`${this.name} hides`);
+      //   }
+
+      //   stop() {
+      //     super.stop();// 用super调用父类的方法
+      //     this.hide();
+      //   }
+      // }
+      // let rabbit = new Rabbit("White Rabbit");
+      // rabbit.run(5);
+      // rabbit.stop();
+
+      /*
+      重写constructor
+      如果子类没有定义constructor，系统会自动生成一个继承父类的super语句
+      当我们想要自己创建自己的constructor时，需要在this之前调用super，
+      否则无法创建
+      */
+
+      // class Animal{
+      //   constructor(name){
+      //     this.name = name
+      //     this.speed = 0
+      //   }
+      //   // ...
+      // }
+      // class Rabbit{
+      //   constructor(name, earLength){
+      //     super(name)
+      //     this.earLength = earLength
+      //   }
+      // }
+
+      /*
+      静态方法被用于实现属于整个类的功能，它与具体的类实例无关
+      在类生命中，它们都被用关键字static进行了标记
+      */
+
+      // class Myclass{
+      //   static property = ''
+      //   static method(){}
+      // }
+
+      /*
+        静态属性和方法是可以被继承的
+        继承类会生成两个原型，一个指向父类，一个指向父类的原型
+      */
+    </script>
+  </body>
+</html>
