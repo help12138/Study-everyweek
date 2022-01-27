@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      回调函数就是在一个函数内执行的函数
+      */
+
+      // function one(name, callBack) {
+      //   alert(name);
+      //   callBack();
+      // }
+      // one("LiHua", () => {
+      //   let age = 18;
+      //   alert(`age ${age}`);
+      // });
+
+      /*
+        回调函数可以嵌套
+      */
+
+      // function one(name, callBack) {
+      //   alert(name);
+      //   callBack();
+      // }
+      // one("LiHua", () => {
+      //   let age = 19;
+      //   if(age == 18){
+      //     return
+      //   }else{
+      //     let active = "run"
+      //     one("liming", ()=>{
+      //       // ...
+      //     })
+      //   };
+      // });
+
+      /*
+      为了能够上下直观的看出函数调用，于是产生了回调套回调的情况
+      这种方式被称为回调地狱或者厄运金字塔
+      为了应对回调地狱，就有了promise（期约）
+      */
+    </script>
+  </body>
+</html>
