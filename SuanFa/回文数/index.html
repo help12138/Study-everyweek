@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /**
+             * 回文数主要使用双指针法，以两个指针指定前后两个元素，进行对比
+             * 这样遍历只需要半个数组的时间，
+             */
+            let x = 1221;
+            var isPalindrome = function (x) {
+                let xArray = [...`${x}`];
+                let first = 0;
+                let last = xArray.length - 1;
+                let parse = parseInt(xArray.length / 2);
+                for (let i = 0; i < parse; i++) {
+                    if (xArray[first] != xArray[last]) {
+                        return false;
+                    }
+                    first++;
+                    last--;
+                }
+                return true;
+            };
+
+            let result = isPalindrome(x);
+            alert(result);
+        </script>
+    </body>
+</html>
