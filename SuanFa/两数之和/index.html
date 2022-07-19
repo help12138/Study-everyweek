@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /**
+             * 用map对象减少一层循环
+             * 名为两数相加,可以利用相减来减少遍历
+             */
+            let nums = [3, 3, 4];
+            let target = 7;
+            var twoSum = function (nums, target) {
+                let mapNum = new Map();
+                let len = nums.length;
+                for (let i = 0; i < len; i++) {
+                    if (mapNum.has(target - nums[i])) {
+                        return [mapNum.get(target - nums[i]), i];
+                    }
+                    mapNum.set(nums[i], i);
+                }
+            };
+
+            let result = twoSum(nums, target);
+            console.log(result, "结果");
+        </script>
+    </body>
+</html>
