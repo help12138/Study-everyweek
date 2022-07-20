@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /**
+             * @param {string[]} strs
+             * @return {string}
+             * 
+             * 编写一个函数来查找字符串数组中的最长公共前缀。
+
+如果不存在公共前缀，返回空字符串 ""。
+
+ 
+
+示例 1：
+
+输入：strs = ["flower","flow","flight"]
+输出："fl"
+示例 2：
+
+输入：strs = ["dog","racecar","car"]
+输出：""
+解释：输入不存在公共前缀。
+ 
+
+提示：
+
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] 仅由小写英文字母组成
+             */
+            strs = ["fliwer", "f"];
+            var longestCommonPrefix = function (strs) {
+                /**
+                 * 解题思路：
+                 * 利用es6的去重
+                 * 循环遍历每个元素的同一个下标字符
+                 * 然后把遍历到的同个下标的字符塞进数组
+                 * 利用 Set 去重。如果只剩一个元素，则说明是同一个元素
+                 * 然后推进要返回的数组里面
+                 * 最后join
+                 */
+                let allStr = [];
+                for (let i = 0; i < strs[0].length; i++) {
+                    let anyOneStr = [];
+                    for (let j = 0; j < strs.length; j++) {
+                        if (strs[j][i] != undefined) {
+                            anyOneStr.push(strs[j][i]);
+                        } else {
+                            anyOneStr = [];
+                            break;
+                        }
+                    }
+                    anyOneStr = [...new Set(anyOneStr)];
+                    if (anyOneStr.length == 1) {
+                        allStr.push(anyOneStr);
+                    } else {
+                        return allStr.join("");
+                    }
+                }
+                return allStr.join("");
+            };
+            console.log(longestCommonPrefix(strs));
+        </script>
+    </body>
+</html>
